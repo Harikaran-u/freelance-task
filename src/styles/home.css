@@ -1,0 +1,67 @@
+.main-home-container {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  background-image: url(https://res.cloudinary.com/diuvnny8c/image/upload/v1714802472/7965336_3699669_kcj43w.jpg);
+}
+
+.banner-container {
+  width: 100%;
+  padding: 50px;
+  flex: 1;
+  background-color: #f6f5f238;
+  backdrop-filter: blur(10px);
+}
+
+.banner-head {
+  font-size: 80px;
+  font-weight: bold;
+}
+.banner-qn {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.home-action-container {
+  width: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.banner-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  height: 40px;
+  width: 120px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #5bbcff;
+  color: #fff;
+}
+
+@media screen and (max-width: 576px) {
+  .banner-head {
+    font-size: 24px;
+    text-align: center;
+  }
+  .banner-qn {
+    font-size: 16px;
+    text-align: center;
+  }
+  .banner-btn {
+    font-size: 12px;
+    padding: 2px;
+    border-radius: 4px;
+    height: 30px;
+  }
+  .home-action-container {
+    width: 200px;
+  }
+}

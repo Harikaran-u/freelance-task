@@ -1,0 +1,66 @@
+.all-jobs-main-container {
+  height: 100vh;
+}
+.all-jobs-data-container {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 20px;
+}
+
+.jobs-info-container {
+  width: 600px;
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-image: url(https://res.cloudinary.com/diuvnny8c/image/upload/v1714822117/3428144_60241_eplnsf.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.job-title-due-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.job-title-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #285778;
+}
+
+.job-title-highlight {
+  color: #0f0f0f;
+  text-decoration: none;
+}
+
+.job-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3cac00;
+}
+
+.due-date {
+  color: #e72929;
+}
+
+.project-link {
+  color: #008dda;
+}
+
+@media screen and (max-width: 576px) {
+  .jobs-info-container {
+    width: 350px;
+  }
+  .project-link {
+    display: inline-block;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 300px;
+  }
+}

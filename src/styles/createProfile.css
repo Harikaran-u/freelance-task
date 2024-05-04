@@ -1,0 +1,68 @@
+.profile-main-container {
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-image: url(https://res.cloudinary.com/diuvnny8c/image/upload/v1714814942/9469548_4199143_dyx651.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-form-container {
+  border-radius: 6px;
+  padding: 10px;
+  background-color: #7bc9ff;
+  width: 400px;
+}
+
+.profile-head {
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+  color: #fff;
+  text-align: center;
+}
+
+.profile-user-input-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.profile-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f0f0f;
+}
+
+.profile-input {
+  outline: none;
+  border: none;
+  height: 30px;
+  padding: 4px;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.profile-text-area-input {
+  outline: none;
+  border: none;
+  padding: 6px;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.profile-submit-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  margin-top: 10px;
+  height: 36px;
+  width: 100%;
+  background-color: #0f0f0f;
+  color: #7bc9ff;
+  font-weight: 600;
+  font-size: 14px;
+}

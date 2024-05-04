@@ -1,0 +1,91 @@
+.all-freelancer-main-container {
+  min-height: 100vh;
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.all-freelancers-head {
+  font-size: 30px;
+  font-weight: bold;
+  color: #5bbcff;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.all-freelancers-data {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+}
+.freelancer-details {
+  padding: 10px;
+  border-radius: 6px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-image: url(https://res.cloudinary.com/diuvnny8c/image/upload/v1714812959/12188678_4907157_xi7zcm.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.freelancer-details-info-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.freelancer-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: #525ceb;
+}
+
+.highlight-info {
+  color: #3d3b40;
+  text-decoration: none;
+}
+
+.hour-rating {
+  color: #00dfa2;
+}
+
+.profile-url {
+  color: #535962;
+}
+
+.message-me-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #0f0f0f;
+  padding: 6px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  height: 36px;
+  width: 100%;
+}
+
+@media screen and (max-width: 576px) {
+  .all-freelancers-head {
+    font-size: 24px;
+  }
+  .freelancer-text {
+    font-size: 10px;
+  }
+  .freelancer-details {
+    max-width: 350px;
+  }
+}
