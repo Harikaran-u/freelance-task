@@ -7,7 +7,7 @@ const url = "https://freelancer-api.p.rapidapi.com/api/find-job";
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": import.meta.env.VITE_RAPID_API_TOKEN,
+    "X-RapidAPI-Key": "7b475e1213mshdad1befbdd76219p103e01jsn11f018ef47d7",
     "X-RapidAPI-Host": "freelancer-api.p.rapidapi.com",
   },
 };
