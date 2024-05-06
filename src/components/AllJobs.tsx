@@ -42,6 +42,11 @@ const AllJobs = () => {
     }
   };
 
+  const shortDesc = (desc: string): string => {
+    const value = desc.slice(0, 150) + "...";
+    return value;
+  };
+
   return (
     <div className="all-jobs-main-container">
       <Navbar />
@@ -66,16 +71,15 @@ const AllJobs = () => {
                 <div className="job-title-due-info-container">
                   <p className="job-title-text">
                     Title:{" "}
-                    <span className="job-title-highlight">
+                    <span className="job-title-highlight short-title">
                       {each["project-title"]}
                     </span>
                   </p>
-                  <p className="job-price">{each["project-price"]}</p>
                 </div>
                 <p className="job-title-text">
                   Description:{" "}
                   <span className="job-title-highlight">
-                    {each["project-description"]}
+                    {shortDesc(each["project-description"])}
                   </span>
                 </p>
                 <p className="job-title-text">
@@ -97,16 +101,20 @@ const AllJobs = () => {
                       {each["ends in"]}
                     </span>
                   </p>
+                  <p className="job-title-text">
+                    Pay:{" "}
+                    <span className="job-price">{each["project-price"]}</span>
+                  </p>
                 </div>
-                <p className="job-title-text">
-                  Project Link:{" "}
+                <div className="link-container">
+                  <p className="job-title-text">Project Link: </p>
                   <a
                     className="job-title-highlight project-link "
                     href={each["project-link"]}
                   >
                     {each["project-link"]}
                   </a>
-                </p>
+                </div>
               </li>
             ))}
         </ul>

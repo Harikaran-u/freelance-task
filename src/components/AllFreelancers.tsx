@@ -43,6 +43,11 @@ const AllFreelancers = () => {
     }
   };
 
+  const shortDesc = (desc: string): string => {
+    const value = desc.slice(0, 150) + "...";
+    return value;
+  };
+
   return (
     <div className="all-freelancer-main-container">
       <Navbar />
@@ -79,7 +84,8 @@ const AllFreelancers = () => {
                   Skills: <span className="highlight-info">{each.skills}</span>
                 </p>
                 <p className="freelancer-text">
-                  Bio: <span className="highlight-info">{each.bio}</span>
+                  Bio:{" "}
+                  <span className="highlight-info">{shortDesc(each.bio)}</span>
                 </p>
                 <p className="freelancer-text">
                   Reviews:{" "}
@@ -89,22 +95,21 @@ const AllFreelancers = () => {
                   Earnings:{" "}
                   <span className="highlight-info">{each.earnings}</span>
                 </p>
-                <div className="freelancer-details-info-container">
-                  <p className="freelancer-text">
-                    <span className="highlight-info hour-rating">
-                      {each.hourRating}
-                    </span>
-                  </p>
-                  <p className="freelancer-text">
-                    Reach me:{" "}
-                    <a
-                      className="highlight-info profile-url"
-                      href={each.freelancerProfile}
-                    >
-                      {each.freelancerProfile}
-                    </a>
-                  </p>
-                </div>
+                <p className="freelancer-text">
+                  Reach me:{" "}
+                  <a
+                    className="highlight-info profile-url"
+                    href={each.freelancerProfile}
+                  >
+                    {each.freelancerProfile}
+                  </a>
+                </p>
+                <p className="freelancer-text">
+                  <span className="highlight-info hour-rating">
+                    {each.hourRating}
+                  </span>
+                </p>
+
                 <Link to={`/message/${each.name}`} className="link-style">
                   <button className="message-me-btn">Message</button>
                 </Link>

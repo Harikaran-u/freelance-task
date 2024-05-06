@@ -41,7 +41,7 @@
 .job-price {
   font-size: 14px;
   font-weight: 600;
-  color: #3cac00;
+  color: #3fa500;
 }
 
 .due-date {
@@ -50,17 +50,27 @@
 
 .project-link {
   color: #008dda;
+  font-weight: 500;
+  margin-left: 10px;
+  max-width: 450px;
+  display: inline-block;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.link-container {
+  display: flex;
+  align-items: center;
 }
 
 @media screen and (max-width: 576px) {
   .jobs-info-container {
     width: 350px;
+    padding: 6px;
   }
+
   .project-link {
-    display: inline-block;
-    text-wrap: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    max-width: 300px;
+    width: 240px;
+    font-weight: 400;
   }
 }
