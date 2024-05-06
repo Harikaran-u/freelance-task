@@ -24,7 +24,9 @@ const Navbar = () => {
 
   return (
     <nav className="nav-main-container">
-      <h1 className="nav-head">Freelancer</h1>
+      <Link to="/" className="link-style">
+        <h1 className="nav-head">Freelancer</h1>
+      </Link>
       <div className="nav-action-container">
         <Popup
           open={isOpen}

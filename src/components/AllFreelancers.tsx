@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import { Circles } from "react-loader-spinner";
 import "../styles/allFreelancer.css";
 import { Link } from "react-router-dom";
+import ErrorContainer from "./ErrorContainer";
 
 const url = "https://freelancer-api.p.rapidapi.com/api/find-freelancers";
 const options = {
@@ -28,6 +29,7 @@ type FreelancerData = {
 const AllFreelancers = () => {
   const [freelancerData, setFreelancerData] = useState<FreelancerData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isError, setIsError] = useState<boolean>(false);
   useEffect(() => {
     getAllFreelancersData();
   }, []);
@@ -39,7 +41,8 @@ const AllFreelancers = () => {
       setFreelancerData(result.freelancers);
       setIsLoading(false);
     } catch (error) {
-      console.error(error);
+      setIsError(true);
+      setIsLoading(false);
     }
   };
 
@@ -51,7 +54,10 @@ const AllFreelancers = () => {
   return (
     <div className="all-freelancer-main-container">
       <Navbar />
-      <h1 className="all-freelancers-head">Highly Passionate Freelancers</h1>
+
+      {!isError && (
+        <h1 className="all-freelancers-head">Highly Passionate Freelancers</h1>
+      )}
       {isLoading && (
         <div className="loader-container">
           <Circles
@@ -117,6 +123,7 @@ const AllFreelancers = () => {
             ))}
         </ul>
       )}
+      {isError && <ErrorContainer />}
     </div>
   );
 };

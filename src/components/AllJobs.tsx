@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import "../styles/allJobs.css";
 import { Circles } from "react-loader-spinner";
+import ErrorContainer from "./ErrorContainer";
 
 const url = "https://freelancer-api.p.rapidapi.com/api/find-job";
 const options = {
@@ -26,6 +27,7 @@ type JobData = {
 const AllJobs = () => {
   const [allJobs, setAllJobs] = useState<JobData[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isError, setIsError] = useState<boolean>(false);
 
   useEffect(() => {
     getAllJobs();
@@ -38,7 +40,8 @@ const AllJobs = () => {
       setAllJobs(result.posts);
       setIsLoading(false);
     } catch (error) {
-      console.error(error);
+      setIsLoading(false);
+      setIsError(true);
     }
   };
 
@@ -119,6 +122,7 @@ const AllJobs = () => {
             ))}
         </ul>
       )}
+      {isError && <ErrorContainer />}
     </div>
   );
 };
