@@ -2,8 +2,6 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import "../styles/signup.css";
 import { Link, useNavigate } from "react-router-dom";
 
-const registerUrl = "https://reqres.in/api/register";
-
 const SignUp = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -39,28 +37,11 @@ const SignUp = () => {
     e.preventDefault();
     setIsSubmit(true);
     if (password === confirmPassword && username !== "") {
-      try {
-        const config = {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username,
-            password,
-          }),
-        };
-        const response = await fetch(registerUrl, config);
-        if (response.ok) {
-          setDataValid(true);
-          setUsername("");
-          setConfirmPassword("");
-          setPassword("");
-          navigate("/", { replace: true });
-        }
-      } catch (error) {
-        console.log(error);
-      }
+      setDataValid(true);
+      setUsername("");
+      setConfirmPassword("");
+      setPassword("");
+      navigate("/", { replace: true });
     }
   };
 

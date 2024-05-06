@@ -74,3 +74,15 @@
     font-weight: 400;
   }
 }
+
+@media screen and (min-width: 767px) and (max-width: 991px) {
+  .jobs-info-container {
+    width: 360px;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1219px) {
+  .jobs-info-container {
+    width: 450px;
+  }
+}

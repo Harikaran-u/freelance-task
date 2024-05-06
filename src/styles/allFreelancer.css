@@ -19,7 +19,7 @@
 .all-freelancers-data {
   width: 100%;
   margin-top: 20px;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -87,5 +87,22 @@
   }
   .freelancer-details {
     max-width: 350px;
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 991px) {
+  .all-freelancers-data {
+    gap: 10px;
+    padding: 2px;
+  }
+
+  .freelancer-details {
+    width: 360px;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1219px) {
+  .freelancer-details {
+    width: 450px;
   }
 }
