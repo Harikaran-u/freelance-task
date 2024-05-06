@@ -1,10 +1,12 @@
 import { ChangeEvent, FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/createProfile.css";
 
 const CreateProfile = () => {
   const [username, setUsername] = useState<string>("");
   const [skills, setSkills] = useState<string>("");
   const [description, setDescription] = useState<string>("");
+  const navigate = useNavigate();
 
   const handleUsername = (e: ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
@@ -20,6 +22,7 @@ const CreateProfile = () => {
 
   const handleProfileSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    navigate("/all-jobs", { replace: true });
   };
 
   return (

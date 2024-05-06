@@ -1,7 +1,10 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 import "../styles/signup.css";
+
+const loginReqUrl = "https://apis.ccbp.in/login";
 
 const SignUp = () => {
   const [username, setUsername] = useState<string>("");
@@ -15,11 +18,29 @@ const SignUp = () => {
     setPassword(e.target.value);
   };
 
-  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setUsername("");
-    setPassword("");
-    navigate("/", { replace: true });
+    const configOptions = {
+      method: "POST",
+      body: JSON.stringify({
+        username,
+        password,
+      }),
+    };
+
+    try {
+      const response = await fetch(loginReqUrl, configOptions);
+      const data = await response.json();
+      if (response.ok) {
+        setUsername("");
+        setPassword("");
+        const token = data.jwt_token;
+        Cookies.set("authToken", token, { expires: 30, path: "/" });
+        navigate("/", { replace: true });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
