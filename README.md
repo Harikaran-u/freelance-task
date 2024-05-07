@@ -22,6 +22,20 @@ Hi, Everyone!!!. Here, it's my freelancer app. Freelancers can see projects and 
 
      password: rahul@2021
 
+# Clone Project
+
+> > >
+
+     git clone https://github.com/Harikaran-u/freelance-task.git
+
+> > >
+
+     npm install
+
+> > >
+
+     npm run dev
+
 ## Pages
 
 **Sign-up**
@@ -67,20 +81,6 @@ Hi, Everyone!!!. Here, it's my freelancer app. Freelancers can see projects and 
 1. React-Icons
 2. Js-Cookies
 3. Popup Js
-
-# Clone Project
-
-> > >
-
-     git clone https://github.com/Harikaran-u/freelance-task.git
-
-> > >
-
-     npm install
-
-> > >
-
-     npm run dev
 
 # I learned these things
 
