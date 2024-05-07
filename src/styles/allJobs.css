@@ -21,6 +21,7 @@
   background-image: url(https://res.cloudinary.com/diuvnny8c/image/upload/v1714822117/3428144_60241_eplnsf.jpg);
   background-position: center;
   background-size: cover;
+  cursor: pointer;
 }
 
 .job-title-due-info-container {

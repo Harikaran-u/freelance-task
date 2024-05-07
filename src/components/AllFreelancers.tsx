@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { IoStar } from "react-icons/io5";
 import Navbar from "./Navbar";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { ThreeDots } from "react-loader-spinner";
 import "../styles/allFreelancer.css";
-import { Link } from "react-router-dom";
 import ErrorContainer from "./ErrorContainer";
 import Pagination from "./Pagination";
 
@@ -34,6 +35,7 @@ const AllFreelancers = () => {
   const [pageLength, setPageLength] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [currentPageList, setCurrentPageList] = useState<FreelancerData[]>([]);
+  const notify = () => toast.success("Message sent successfully");
 
   useEffect(() => {
     getAllFreelancersData();
@@ -46,7 +48,7 @@ const AllFreelancers = () => {
       const totalLength = Math.ceil(result.freelancers.length / 4);
       setFreelancerData(result.freelancers);
       setPageLength(totalLength);
-      setCurrentPageList(result.freelancers.slice(currentPage, 5));
+      setCurrentPageList(result.freelancers.slice(0, 4));
       setIsLoading(false);
     } catch (error) {
       setIsError(true);
@@ -136,10 +138,10 @@ const AllFreelancers = () => {
                       {each.hourRating}
                     </span>
                   </p>
-
-                  <Link to={`/message/${each.name}`} className="link-style">
-                    <button className="message-me-btn">Message</button>
-                  </Link>
+                  <button className="message-me-btn" onClick={notify}>
+                    Message
+                  </button>
+                  <ToastContainer autoClose={2000} theme="dark" />
                 </li>
               ))}
           </ul>

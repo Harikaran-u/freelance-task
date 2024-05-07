@@ -41,6 +41,7 @@
   background-image: url(https://res.cloudinary.com/diuvnny8c/image/upload/v1714812959/12188678_4907157_xi7zcm.jpg);
   background-size: cover;
   background-position: center;
+  cursor: pointer;
 }
 
 .freelancer-details-info-container {

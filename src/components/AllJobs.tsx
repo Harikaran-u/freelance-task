@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import "../styles/allJobs.css";
 import { ThreeDots } from "react-loader-spinner";
 import ErrorContainer from "./ErrorContainer";
+import Pagination from "./Pagination";
 
 const url = "https://freelancer-api.p.rapidapi.com/api/find-job";
 const options = {
@@ -25,9 +26,12 @@ type JobData = {
 };
 
 const AllJobs = () => {
-  const [allJobs, setAllJobs] = useState<JobData[] | null>(null);
+  const [allJobs, setAllJobs] = useState<JobData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
+  const [pageLength, setPageLength] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentPageList, setCurrentPageList] = useState<JobData[]>([]);
 
   useEffect(() => {
     getAllJobs();
@@ -37,7 +41,10 @@ const AllJobs = () => {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
+      const totalLength = Math.ceil(result.posts.length / 10);
       setAllJobs(result.posts);
+      setPageLength(totalLength);
+      setCurrentPageList(result.posts.slice(0, 10));
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
@@ -48,6 +55,14 @@ const AllJobs = () => {
   const shortDesc = (desc: string): string => {
     const value = desc.slice(0, 150) + "...";
     return value;
+  };
+
+  const handlePagination = (n: number) => {
+    setCurrentPage(n);
+    const pageNum = (n - 1) * 10;
+    const copyList = [...allJobs];
+    const selectedData = copyList.splice(pageNum, 10);
+    setCurrentPageList(selectedData);
   };
 
   return (
@@ -70,7 +85,7 @@ const AllJobs = () => {
       {!isLoading && (
         <ul className="all-jobs-data-container">
           {allJobs &&
-            allJobs.map((each) => (
+            currentPageList.map((each) => (
               <li key={each["project-title"]} className="jobs-info-container">
                 <div className="job-title-due-info-container">
                   <p className="job-title-text">
@@ -124,6 +139,11 @@ const AllJobs = () => {
         </ul>
       )}
       {isError && <ErrorContainer />}
+      <Pagination
+        totalPages={pageLength}
+        currentPage={currentPage}
+        updatePage={handlePagination}
+      />
     </div>
   );
 };
