@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import "../styles/allJobs.css";
-import { Circles } from "react-loader-spinner";
+import { ThreeDots } from "react-loader-spinner";
 import ErrorContainer from "./ErrorContainer";
 
 const url = "https://freelancer-api.p.rapidapi.com/api/find-job";
@@ -55,14 +55,15 @@ const AllJobs = () => {
       <Navbar />
       {isLoading && (
         <div className="loader-container">
-          <Circles
+          <ThreeDots
+            visible={true}
             height="80"
             width="80"
-            color="#4fa94d"
-            ariaLabel="circles-loading"
+            color="#5bbcff"
+            radius="9"
+            ariaLabel="three-dots-loading"
             wrapperStyle={{}}
             wrapperClass=""
-            visible={true}
           />
         </div>
       )}

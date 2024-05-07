@@ -1,5 +1,8 @@
 .all-freelancer-main-container {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .loader-container {
   display: flex;
@@ -33,6 +36,7 @@
   width: 600px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 10px;
   background-image: url(https://res.cloudinary.com/diuvnny8c/image/upload/v1714812959/12188678_4907157_xi7zcm.jpg);
   background-size: cover;

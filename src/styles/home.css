@@ -1,30 +1,35 @@
 .main-home-container {
   height: 100vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  background-image: url(https://res.cloudinary.com/diuvnny8c/image/upload/v1714802472/7965336_3699669_kcj43w.jpg);
 }
 
 .banner-container {
-  width: 100%;
-  padding: 10px;
-  flex: 1;
+  height: 90%;
+  padding: 50px 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.banner-img {
+  width: 550px;
+  height: 350px;
+  border-radius: 16px;
+}
+
+.banner-info-container {
+  width: 450px;
+  height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background-color: #ffffff49;
-  backdrop-filter: blur(10px);
+  justify-content: center;
 }
 
 .banner-head {
-  font-size: 80px;
+  font-size: 50px;
   font-weight: bold;
 }
 .banner-qn {
-  font-size: 60px;
+  font-size: 30px;
   font-weight: bold;
 }
 
@@ -50,13 +55,13 @@
   color: #fff;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 767px) {
   .banner-head {
-    font-size: 36px;
+    font-size: 30px;
     text-align: center;
   }
   .banner-qn {
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
   }
   .banner-btn {
@@ -64,5 +69,64 @@
     padding: 2px;
     border-radius: 4px;
     height: 36px;
+  }
+  .banner-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 25px;
+  }
+  .banner-img {
+    order: 2;
+    width: 90%;
+    height: fit-content;
+  }
+  .banner-info-container {
+    width: 90%;
+    height: fit-content;
+  }
+  .home-action-container {
+    width: fit-content;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .banner-img {
+    width: 50%;
+  }
+  .banner-info-container {
+    width: 350px;
+  }
+  .banner-head {
+    font-size: 30px;
+  }
+  .banner-qn {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .banner-img {
+    width: 500px;
+    height: 300px;
+  }
+  .banner-info-container {
+    width: 500px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .banner-img {
+    width: 50%;
+    height: fit-content;
+  }
+  .banner-info-container {
+    width: 600px;
+  }
+  .banner-head {
+    font-size: 60px;
+  }
+  .banner-qn {
+    font-size: 40px;
   }
 }

@@ -25,7 +25,11 @@ const Navbar = () => {
   return (
     <nav className="nav-main-container">
       <Link to="/" className="link-style">
-        <h1 className="nav-head">Freelancer</h1>
+        <img
+          src="https://res.cloudinary.com/diuvnny8c/image/upload/v1715071296/pngegg_1_doewyz.png"
+          className="freelance-logo"
+          alt="freelancer-logo"
+        />
       </Link>
       <div className="nav-action-container">
         <Popup

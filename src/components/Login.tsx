@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 import "../styles/signup.css";
@@ -89,15 +89,8 @@ const SignUp = () => {
           <button type="submit" className="sign-up-btn">
             login
           </button>
-          <p className="sign-up-info">
-            New to freelancer
-            <Link to="/sign-up" className="link-style">
-              <span className="sign-up-span">signup?</span>
-            </Link>
-          </p>
         </form>
       )}
-
       {isError && <ErrorContainer />}
     </div>
   );
