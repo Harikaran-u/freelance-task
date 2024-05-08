@@ -9,10 +9,15 @@ import "../styles/navbar.css";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const navigate = useNavigate();
+
+  // handling logout and clearing token in cookies
+
   const handleLogout = () => {
     Cookies.remove("authToken");
     navigate("/login", { replace: true });
   };
+
+  // handling popup functionality
 
   const openPopup = () => {
     setIsOpen(true);

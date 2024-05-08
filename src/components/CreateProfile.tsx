@@ -3,6 +3,8 @@ import toast, { Toaster } from "react-hot-toast";
 import "../styles/createProfile.css";
 import Navbar from "./Navbar";
 
+// default values for static profiles
+
 const defaultValues = {
   name: "Rahul",
   skills:
@@ -17,6 +19,8 @@ const CreateProfile = () => {
   const [description, setDescription] = useState<string>(
     defaultValues.description
   );
+
+  // In app submit notification functionality handling
 
   const notify = () =>
     toast.success("Profile updated successfully", {
@@ -37,6 +41,8 @@ const CreateProfile = () => {
   const handleDescription = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setDescription(e.target.value);
   };
+
+  // preventing from default form issue and clearing state values
 
   const handleProfileSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

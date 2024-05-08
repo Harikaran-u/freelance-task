@@ -1,5 +1,7 @@
 import "../styles/pagination.css";
 
+// props data types
+
 type dataSet = {
   totalPages: number;
   currentPage: number;

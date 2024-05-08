@@ -18,6 +18,8 @@ const options = {
   },
 };
 
+// basic type declaration of freelancer data
+
 type FreelancerData = {
   name: string;
   hourRating: string;
@@ -36,6 +38,9 @@ const AllFreelancers = () => {
   const [pageLength, setPageLength] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [currentPageList, setCurrentPageList] = useState<FreelancerData[]>([]);
+
+  // handling message sent notification
+
   const notify = () =>
     toast.success("Message sent successfully", {
       style: {
@@ -47,6 +52,8 @@ const AllFreelancers = () => {
   useEffect(() => {
     getAllFreelancersData();
   }, []);
+
+  //  get freelancers data and error handling methods
 
   const getAllFreelancersData = async () => {
     try {
@@ -63,10 +70,14 @@ const AllFreelancers = () => {
     }
   };
 
+  // shorting the freelancer bio description
+
   const shortDesc = (desc: string): string => {
     const value = desc.slice(0, 150) + "...";
     return value;
   };
+
+  // receiving page number and updating to get data items based on page number
 
   const handlePagination = (n: number) => {
     setCurrentPage(n);

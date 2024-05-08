@@ -17,6 +17,8 @@ const options = {
   },
 };
 
+// basic job details data type
+
 type JobData = {
   "ends in": string;
   "freelancers-bids": string;
@@ -35,6 +37,9 @@ const AllJobs = () => {
   const [pageLength, setPageLength] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [currentPageList, setCurrentPageList] = useState<JobData[]>([]);
+
+  // In app notification handling
+
   const notify = () =>
     toast.success("Request sent successfully", {
       style: {
@@ -46,6 +51,8 @@ const AllJobs = () => {
   useEffect(() => {
     getAllJobs();
   }, []);
+
+  // getting all job details from backend and error handling
 
   const getAllJobs = async () => {
     try {
@@ -62,10 +69,14 @@ const AllJobs = () => {
     }
   };
 
+  // shorting project description details
+
   const shortDesc = (desc: string): string => {
     const value = desc.slice(0, 150) + "...";
     return value;
   };
+
+  // receiving page number and updated pages based on page number
 
   const handlePagination = (n: number) => {
     setCurrentPage(n);

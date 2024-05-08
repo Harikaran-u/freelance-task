@@ -10,6 +10,7 @@ const SignUp = () => {
   const [isDataValid, setDataValid] = useState<boolean>(false);
   const [isSubmit, setIsSubmit] = useState<boolean>(false);
   const navigate = useNavigate();
+
   const handleUsername = (e: ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
     setDataValid(false);
@@ -20,6 +21,9 @@ const SignUp = () => {
     setDataValid(false);
     setIsSubmit(false);
   };
+
+  // password double checking
+
   const handleConfirmPassword = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setDataValid(false);

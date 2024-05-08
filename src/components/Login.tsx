@@ -23,6 +23,8 @@ const SignUp = () => {
     setPassword(e.target.value);
   };
 
+  // user data backend submit & error handling
+
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const configOptions = {
