@@ -2,15 +2,16 @@
 
 # overview
 
-Hi, Everyone!!!. Here, it's my freelancer app. Freelancers can see projects and clients can see freelancer details. New users can create profile, signup and old users can login.
+Hi, Everyone!!!. Here, it's my freelancer app. Freelancers can see projects and clients can see freelancer details. Users can Login as client or freelancer. Based on login they will get expected results and this application follows authorization feature. Authorized people only allowed to access the applications all pages. Otherwise, they will be redirected to login page.
 
-**Functionality**
+# Functionality
 
-1. Sign-up
-2. Login
-3. Projects View
-4. Freelancer View
-5. Profile Update
+1. Login
+2. Projects View
+3. Freelancer View
+4. Profile Update
+5. Pagination
+6. Project/Freelancer Detailed view
 
 # Sample Login Credential
 
@@ -38,33 +39,37 @@ Hi, Everyone!!!. Here, it's my freelancer app. Freelancers can see projects and 
 
 ## Pages
 
-**Sign-up**
-
-![Sign-up](https://res.cloudinary.com/diuvnny8c/image/upload/v1714995729/Screenshot_395_ftohnx.png)
-
 **Login**
 
-![Login](https://res.cloudinary.com/diuvnny8c/image/upload/v1714995836/Screenshot_396_kwipod.png)
+![Login](https://res.cloudinary.com/diuvnny8c/image/upload/v1715158489/Screenshot_411_mvv6da.png)
 
 **Home**
 
-![Home](https://res.cloudinary.com/diuvnny8c/image/upload/v1714995838/Screenshot_397_ljoluo.png)
+![Home](https://res.cloudinary.com/diuvnny8c/image/upload/v1715157813/Screenshot_405_rpefei.png)
 
 **Freelancer**
 
-![Freelancer](https://res.cloudinary.com/diuvnny8c/image/upload/v1714995838/Screenshot_400_aeuoa0.png)
+![Freelancer](https://res.cloudinary.com/diuvnny8c/image/upload/v1715157814/Screenshot_407_butdwi.png)
 
 **Client**
 
-![Client](https://res.cloudinary.com/diuvnny8c/image/upload/v1714995901/Screenshot_404_xu7ptv.png)
+![Client](https://res.cloudinary.com/diuvnny8c/image/upload/v1715157814/Screenshot_409_atbyzm.png)
 
 **Profile Update**
 
-![Profile-update](https://res.cloudinary.com/diuvnny8c/image/upload/v1714995838/Screenshot_398_ixdybf.png)
+![Profile-update](https://res.cloudinary.com/diuvnny8c/image/upload/v1715157814/Screenshot_406_ndak9p.png)
 
 **Logout-Ui**
 
-![Logout-Ui](https://res.cloudinary.com/diuvnny8c/image/upload/v1714995839/Screenshot_403_cn6dgw.png)
+![Logout-Ui](https://res.cloudinary.com/diuvnny8c/image/upload/v1715158654/Screenshot_414_d8a2fu.png)
+
+**Details-Pop-up**
+
+![Details-Pop-up](https://res.cloudinary.com/diuvnny8c/image/upload/v1715157998/Screenshot_410_nm6cvx.png)
+
+**Not-Found**
+
+![Not-Found](https://res.cloudinary.com/diuvnny8c/image/upload/v1715158518/Screenshot_412_oyonn6.png)
 
 # Technologies used
 
@@ -81,12 +86,16 @@ Hi, Everyone!!!. Here, it's my freelancer app. Freelancers can see projects and 
 1. React-Icons
 2. Js-Cookies
 3. Popup Js
+4. React-Hot-Toast
+5. React-Loader-Spinner
 
-# I learned these things
+# What I learned
 
 1. Typescript with React
 2. Typescript with 3rd party packages
 3. How to use Typescript with functions and event listeners
+4. Type safety
+5. error handling
 
 **Deployed Link**
 
