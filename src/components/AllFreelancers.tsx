@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { IoStar } from "react-icons/io5";
 import Navbar from "./Navbar";
 import toast, { Toaster } from "react-hot-toast";
@@ -38,6 +39,8 @@ const AllFreelancers = () => {
   const [pageLength, setPageLength] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [currentPageList, setCurrentPageList] = useState<FreelancerData[]>([]);
+  const [searchParams] = useSearchParams();
+  const pageNum = searchParams.get("page");
 
   // handling message sent notification
 
@@ -52,6 +55,14 @@ const AllFreelancers = () => {
   useEffect(() => {
     getAllFreelancersData();
   }, []);
+
+  useEffect(() => {
+    if (pageNum !== null) {
+      const num = parseInt(pageNum);
+      setCurrentPage(parseInt(pageNum));
+      handlePagination(num);
+    }
+  }, [pageNum]);
 
   //  get freelancers data and error handling methods
 
@@ -189,7 +200,7 @@ const AllFreelancers = () => {
       <Pagination
         totalPages={pageLength}
         currentPage={currentPage}
-        updatePage={handlePagination}
+        pathName="all-freelancers"
       />
     </div>
   );

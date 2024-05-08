@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import "../styles/allJobs.css";
 import { ThreeDots } from "react-loader-spinner";
@@ -37,6 +38,8 @@ const AllJobs = () => {
   const [pageLength, setPageLength] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [currentPageList, setCurrentPageList] = useState<JobData[]>([]);
+  const [searchParams] = useSearchParams();
+  const pageNum = searchParams.get("page");
 
   // In app notification handling
 
@@ -51,6 +54,14 @@ const AllJobs = () => {
   useEffect(() => {
     getAllJobs();
   }, []);
+
+  useEffect(() => {
+    if (pageNum !== null) {
+      const num = parseInt(pageNum);
+      setCurrentPage(parseInt(pageNum));
+      handlePagination(num);
+    }
+  }, [pageNum]);
 
   // getting all job details from backend and error handling
 
@@ -187,7 +198,7 @@ const AllJobs = () => {
       <Pagination
         totalPages={pageLength}
         currentPage={currentPage}
-        updatePage={handlePagination}
+        pathName="all-jobs"
       />
     </div>
   );
