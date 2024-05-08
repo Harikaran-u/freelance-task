@@ -4,10 +4,15 @@
   background-size: cover;
   background-image: url(https://res.cloudinary.com/diuvnny8c/image/upload/v1714814942/9469548_4199143_dyx651.jpg);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 
+.profile-update-container {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .profile-form-container {
   border-radius: 6px;
   padding: 10px;
