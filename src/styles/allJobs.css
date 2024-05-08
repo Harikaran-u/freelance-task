@@ -18,12 +18,18 @@
   width: 600px;
   border-radius: 4px;
   padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
   background-image: url(https://res.cloudinary.com/diuvnny8c/image/upload/v1714822117/3428144_60241_eplnsf.jpg);
   background-position: center;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.job-info-details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
   cursor: pointer;
 }
 

@@ -6,6 +6,7 @@ import ErrorContainer from "./ErrorContainer";
 import Pagination from "./Pagination";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
+import toast, { Toaster } from "react-hot-toast";
 
 const url = "https://freelancer-api.p.rapidapi.com/api/find-job";
 const options = {
@@ -34,6 +35,13 @@ const AllJobs = () => {
   const [pageLength, setPageLength] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [currentPageList, setCurrentPageList] = useState<JobData[]>([]);
+  const notify = () =>
+    toast.success("Request sent successfully", {
+      style: {
+        background: "#333",
+        color: "#fff",
+      },
+    });
 
   useEffect(() => {
     getAllJobs();
@@ -88,74 +96,78 @@ const AllJobs = () => {
         <ul className="all-jobs-data-container">
           {allJobs &&
             currentPageList.map((each) => (
-              <Popup
-                key={each["project-title"]}
-                trigger={
-                  <li className="jobs-info-container">
-                    <div className="job-title-due-info-container">
+              <li className="jobs-info-container" key={each["project-title"]}>
+                <Popup
+                  trigger={
+                    <div className="job-info-details-container">
+                      <div className="job-title-due-info-container">
+                        <p className="job-title-text">
+                          Title:{" "}
+                          <span className="job-title-highlight short-title">
+                            {each["project-title"]}
+                          </span>
+                        </p>
+                      </div>
                       <p className="job-title-text">
-                        Title:{" "}
-                        <span className="job-title-highlight short-title">
-                          {each["project-title"]}
-                        </span>
-                      </p>
-                    </div>
-                    <p className="job-title-text">
-                      Description:{" "}
-                      <span className="job-title-highlight">
-                        {shortDesc(each["project-description"])}
-                      </span>
-                    </p>
-                    <p className="job-title-text">
-                      Tags:{" "}
-                      <span className="job-title-highlight">
-                        {each["project-tags"]}
-                      </span>
-                    </p>
-                    <div className="job-title-due-info-container">
-                      <p className="job-title-text">
-                        Bids:{" "}
+                        Description:{" "}
                         <span className="job-title-highlight">
-                          {each["freelancers-bids"]}
+                          {shortDesc(each["project-description"])}
                         </span>
                       </p>
                       <p className="job-title-text">
-                        Due:{" "}
-                        <span className="job-title-highlight due-date">
-                          {each["ends in"]}
+                        Tags:{" "}
+                        <span className="job-title-highlight">
+                          {each["project-tags"]}
                         </span>
                       </p>
-                      <p className="job-title-text">
-                        Pay:{" "}
-                        <span className="job-price">
-                          {each["project-price"]}
-                        </span>
-                      </p>
+                      <div className="job-title-due-info-container">
+                        <p className="job-title-text">
+                          Bids:{" "}
+                          <span className="job-title-highlight">
+                            {each["freelancers-bids"]}
+                          </span>
+                        </p>
+                        <p className="job-title-text">
+                          Due:{" "}
+                          <span className="job-title-highlight due-date">
+                            {each["ends in"]}
+                          </span>
+                        </p>
+                        <p className="job-title-text">
+                          Pay:{" "}
+                          <span className="job-price">
+                            {each["project-price"]}
+                          </span>
+                        </p>
+                      </div>
+                      <div className="link-container">
+                        <p className="job-title-text">Project Link: </p>
+                        <a
+                          className="job-title-highlight project-link "
+                          href={each["project-link"]}
+                        >
+                          {each["project-link"]}
+                        </a>
+                      </div>
                     </div>
-                    <div className="link-container">
-                      <p className="job-title-text">Project Link: </p>
-                      <a
-                        className="job-title-highlight project-link "
-                        href={each["project-link"]}
-                      >
-                        {each["project-link"]}
-                      </a>
-                    </div>
-                    <button className="message-me-btn">Request</button>
-                  </li>
-                }
-                modal
-                nested
-              >
-                <div className="data-container">
-                  <h1 className="freelancer-bio-head">
-                    {each["project-title"]}
-                  </h1>
-                  <p className="freelancer-bio-desc">
-                    {each["project-description"]}
-                  </p>
-                </div>
-              </Popup>
+                  }
+                  modal
+                  nested
+                >
+                  <div className="data-container">
+                    <h1 className="freelancer-bio-head">
+                      {each["project-title"]}
+                    </h1>
+                    <p className="freelancer-bio-desc">
+                      {each["project-description"]}
+                    </p>
+                  </div>
+                </Popup>
+                <button className="message-me-btn" onClick={notify}>
+                  Request
+                </button>
+                <Toaster position="top-right" />
+              </li>
             ))}
         </ul>
       )}

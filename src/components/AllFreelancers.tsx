@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { IoStar } from "react-icons/io5";
 import Navbar from "./Navbar";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import toast, { Toaster } from "react-hot-toast";
 import { ThreeDots } from "react-loader-spinner";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
@@ -37,7 +36,13 @@ const AllFreelancers = () => {
   const [pageLength, setPageLength] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [currentPageList, setCurrentPageList] = useState<FreelancerData[]>([]);
-  const notify = () => toast.success("Message sent successfully");
+  const notify = () =>
+    toast.success("Message sent successfully", {
+      style: {
+        backgroundColor: "#000",
+        color: "#fff",
+      },
+    });
 
   useEffect(() => {
     getAllFreelancersData();
@@ -97,69 +102,73 @@ const AllFreelancers = () => {
           <ul className="all-freelancers-data">
             {freelancerData !== null &&
               currentPageList.map((each) => (
-                <Popup
-                  trigger={
-                    <li key={each.name} className="freelancer-details">
-                      <div className="freelancer-details-info-container">
-                        <p className="freelancer-text">
-                          Name:{" "}
-                          <span className="highlight-info">{each.name}</span>
-                        </p>
+                <li key={each.name} className="freelancer-details">
+                  <Popup
+                    trigger={
+                      <div className="freelancer-info-container">
+                        <div className="freelancer-details-info-container">
+                          <p className="freelancer-text">
+                            Name:{" "}
+                            <span className="highlight-info">{each.name}</span>
+                          </p>
 
+                          <p className="freelancer-text">
+                            <IoStar fill="#FFC93C" />{" "}
+                            <span className="highlight-info">{each.stars}</span>
+                          </p>
+                        </div>
                         <p className="freelancer-text">
-                          <IoStar fill="#FFC93C" />{" "}
-                          <span className="highlight-info">{each.stars}</span>
+                          Skills:{" "}
+                          <span className="highlight-info">{each.skills}</span>
+                        </p>
+                        <p
+                          className="freelancer-text"
+                          title="click here for more"
+                        >
+                          Bio:{" "}
+                          <span className="highlight-info">
+                            {shortDesc(each.bio)}
+                          </span>
+                        </p>
+                        <p className="freelancer-text">
+                          Reviews:{" "}
+                          <span className="highlight-info">{each.reviews}</span>
+                        </p>
+                        <p className="freelancer-text">
+                          Earnings:{" "}
+                          <span className="highlight-info">
+                            {each.earnings}
+                          </span>
+                        </p>
+                        <p className="freelancer-text">
+                          Reach me:{" "}
+                          <a
+                            className="highlight-info profile-url"
+                            href={each.freelancerProfile}
+                          >
+                            {each.freelancerProfile}
+                          </a>
+                        </p>
+                        <p className="freelancer-text">
+                          <span className="highlight-info hour-rating">
+                            {each.hourRating}
+                          </span>
                         </p>
                       </div>
-                      <p className="freelancer-text">
-                        Skills:{" "}
-                        <span className="highlight-info">{each.skills}</span>
-                      </p>
-                      <p
-                        className="freelancer-text"
-                        title="click here for more"
-                      >
-                        Bio:{" "}
-                        <span className="highlight-info">
-                          {shortDesc(each.bio)}
-                        </span>
-                      </p>
-                      <p className="freelancer-text">
-                        Reviews:{" "}
-                        <span className="highlight-info">{each.reviews}</span>
-                      </p>
-                      <p className="freelancer-text">
-                        Earnings:{" "}
-                        <span className="highlight-info">{each.earnings}</span>
-                      </p>
-                      <p className="freelancer-text">
-                        Reach me:{" "}
-                        <a
-                          className="highlight-info profile-url"
-                          href={each.freelancerProfile}
-                        >
-                          {each.freelancerProfile}
-                        </a>
-                      </p>
-                      <p className="freelancer-text">
-                        <span className="highlight-info hour-rating">
-                          {each.hourRating}
-                        </span>
-                      </p>
-                      <button className="message-me-btn" onClick={notify}>
-                        Message
-                      </button>
-                      <ToastContainer autoClose={2000} theme="dark" />
-                    </li>
-                  }
-                  modal
-                  nested
-                >
-                  <div className="data-container">
-                    <h1 className="freelancer-bio-head">{each.name}</h1>
-                    <p className="freelancer-bio-desc">{each.bio}</p>
-                  </div>
-                </Popup>
+                    }
+                    modal
+                    nested
+                  >
+                    <div className="data-container">
+                      <h1 className="freelancer-bio-head">{each.name}</h1>
+                      <p className="freelancer-bio-desc">{each.bio}</p>
+                    </div>
+                  </Popup>
+                  <button className="message-me-btn" onClick={notify}>
+                    Message
+                  </button>
+                  <Toaster position="top-right" />
+                </li>
               ))}
           </ul>
         </>
