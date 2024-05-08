@@ -14,13 +14,13 @@ const App = () => {
       <Routes>
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="*" element={<NotFound />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Home />} />
           <Route path="/all-freelancers" element={<AllFreelancers />} />
           <Route path="/edit-profile" element={<CreateProfile />} />
           <Route path="/all-jobs" element={<AllJobs />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
