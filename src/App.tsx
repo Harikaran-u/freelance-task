@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Home from "./components/Home";
@@ -19,8 +19,9 @@ const App = () => {
           <Route path="/all-freelancers" element={<AllFreelancers />} />
           <Route path="/edit-profile" element={<CreateProfile />} />
           <Route path="/all-jobs" element={<AllJobs />} />
-          <Route path="*" element={<NotFound />} />
         </Route>
+        <Route path="not-found" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/not-found" />} />
       </Routes>
     </BrowserRouter>
   );
