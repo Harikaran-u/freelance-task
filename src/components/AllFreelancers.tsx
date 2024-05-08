@@ -91,9 +91,6 @@ const AllFreelancers = () => {
     <div className="all-freelancer-main-container">
       <Navbar />
 
-      {!isError && (
-        <h1 className="all-freelancers-head">Highly Passionate Freelancers</h1>
-      )}
       {isLoading && (
         <div className="loader-container">
           <ThreeDots
@@ -110,6 +107,9 @@ const AllFreelancers = () => {
       )}
       {!isLoading && (
         <>
+          <h1 className="all-freelancers-head">
+            Highly Passionate Freelancers
+          </h1>
           <ul className="all-freelancers-data">
             {freelancerData !== null &&
               currentPageList.map((each) => (
