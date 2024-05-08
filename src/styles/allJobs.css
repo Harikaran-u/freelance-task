@@ -10,12 +10,14 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 10px;
-  padding-bottom: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
   gap: 20px;
 }
 
 .jobs-info-container {
-  width: 600px;
+  width: 550px;
   border-radius: 4px;
   padding: 10px;
   background-image: url(https://res.cloudinary.com/diuvnny8c/image/upload/v1714822117/3428144_60241_eplnsf.jpg);
@@ -74,9 +76,13 @@
   align-items: center;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
+  .all-jobs-data-container {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
   .jobs-info-container {
-    width: 350px;
+    width: 100%;
     padding: 6px;
   }
 
@@ -86,9 +92,14 @@
   }
 }
 
-@media screen and (min-width: 767px) and (max-width: 991px) {
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  .all-jobs-data-container {
+    padding-left: 50px;
+    padding-right: 50px;
+    justify-content: space-evenly;
+  }
   .jobs-info-container {
-    width: 360px;
+    width: 260px;
   }
 }
 
