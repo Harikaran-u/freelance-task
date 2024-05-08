@@ -156,6 +156,7 @@ const AllFreelancers = () => {
                           <a
                             className="highlight-info profile-url"
                             href={each.freelancerProfile}
+                            target="_blank"
                           >
                             {each.freelancerProfile}
                           </a>

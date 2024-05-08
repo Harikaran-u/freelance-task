@@ -156,6 +156,7 @@ const AllJobs = () => {
                         <a
                           className="job-title-highlight project-link "
                           href={each["project-link"]}
+                          target="_blank"
                         >
                           {each["project-link"]}
                         </a>
